@@ -25,4 +25,3 @@
 - リプライ
 - 足あと
 
-## Headless SNS Job
