@@ -1,3 +1,8 @@
 {
-  "recommendations": ["42crunch.vscode-openapi", "esbenp.prettier-vscode"]
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "42crunch.vscode-openapi",
+    "esbenp.prettier-vscode",
+    "unifiedjs.vscode-mdx"
+  ]
 }
