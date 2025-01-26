@@ -4,6 +4,12 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://morimoto520212.github.io/headless-sns",
+  outDir: "./docs",
+  compressHTML: false,
+  build: {
+    assetsPrefix: "https://morimoto520212.github.io/headless-sns",
+  },
   integrations: [
     starlight({
       title: "Headless SNS",
