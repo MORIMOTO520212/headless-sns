@@ -4,7 +4,10 @@
 <h3 align="center">for Engineer</h3>
 
 <p align="center">
+    <img alt="Static Badge" src="https://img.shields.io/badge/npm-v22.x.x-blue">
     <img alt="Static Badge" src="https://img.shields.io/badge/Framework-NestJS-red">
+    <img alt="Static Badge" src="https://img.shields.io/badge/License-MIT-green">
+
 </p>
 
 ## 概要
