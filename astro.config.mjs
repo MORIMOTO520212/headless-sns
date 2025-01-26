@@ -8,7 +8,8 @@ export default defineConfig({
   outDir: "./docs",
   compressHTML: false,
   build: {
-    assetsPrefix: "https://morimoto520212.github.io/headless-sns",
+    assets: "assets",
+    assetsPrefix: ".",
   },
   integrations: [
     starlight({
