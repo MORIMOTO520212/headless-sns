@@ -1,7 +1,4 @@
-<h1 align="center">
-    Headless SNS 👻 
-</h1>
-<h3 align="center">for Engineer</h3>
+<img src="./docs/ogp.png" />
 
 <p align="center">
     <img alt="Static Badge" src="https://img.shields.io/badge/npm-v22.x.x-blue">
@@ -21,15 +18,17 @@
 - メッセージ投稿 API
 
 ## メディアの投稿
+
 画像や動画などのメディアファイルはURL形式で指定可能です。
 投稿するにはデータURLを指定するかご自身でセルフホスティングしてください。
 
 ## 通知
+
 ユーザー編集からwebhookを指定できます。
 
 ### 通知の種類
+
 - いいね
 - リツイート
 - リプライ
 - 足あと
-
