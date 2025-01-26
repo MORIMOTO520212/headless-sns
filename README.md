@@ -33,7 +33,14 @@
 - リプライ
 - 足あと
 
-## Run
+## 環境構築
+
+```bash
+cd functions
+npm i
+```
+
+## 実行
 
 - ローカル環境で動作のテストをする場合は以下を実行します。
 
@@ -44,7 +51,7 @@ npm run serve
 - 動作確認するには、`http://127.0.0.1:5001/headless-sns/us-central1/{entryPoint}`にアクセスしてください。
 - **entryPoint**は`api`です。
 
-## Deploy
+## デプロイ
 
 ```bash
 npm run deploy
