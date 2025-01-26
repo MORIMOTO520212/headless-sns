@@ -1,0 +1,253 @@
+openapi: 3.0.1
+info:
+  title: Headless SNS API
+  description: ''
+  version: 1.0.0
+tags:
+  - name: user
+  - name: post
+paths:
+  /user/create:
+    post:
+      summary: register
+      deprecated: false
+      description: ユーザー登録
+      operationId: createUser
+      tags:
+        - user
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userid:
+                  type: string
+                  pattern: ^[a-zA-Z0-9_]+
+                  examples:
+                    - headless_cms
+                password:
+                  type: string
+                bio:
+                  type: string
+                  examples:
+                    - bioにはユーザーのプロフィール情報を記入します
+                  nullable: true
+                profile_image_url:
+                  type: string
+                  examples:
+                    - https://picsum.photos/200/300
+              required:
+                - userid
+                - password
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+        x-200:UserResponse:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  userid:
+                    type: string
+                  bio:
+                    type: string
+                  profile_image_url:
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+                  follower_user_list:
+                    type: array
+                    items:
+                      type: string
+                      description: userid
+                  follow_user_list:
+                    type: array
+                    items:
+                      type: string
+                      description: userid
+                required:
+                  - userid
+                  - bio
+                  - profile_image_url
+                  - createdAt
+                  - updatedAt
+                  - follower_user_list
+                  - follow_user_list
+          headers: {}
+      security: []
+  /user/update:
+    patch:
+      summary: update
+      deprecated: false
+      description: ユーザー更新
+      operationId: updateUser
+      tags:
+        - user
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bio:
+                  type: string
+                  nullable: true
+                profile_image_url:
+                  type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+        x-200:UserResponse:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  userid:
+                    type: string
+                  bio:
+                    type: string
+                  profile_image_url:
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+                  follower_user_list:
+                    type: array
+                    items:
+                      type: string
+                      description: userid
+                  follow_user_list:
+                    type: array
+                    items:
+                      type: string
+                      description: userid
+                required:
+                  - userid
+                  - bio
+                  - profile_image_url
+                  - createdAt
+                  - updatedAt
+                  - follower_user_list
+                  - follow_user_list
+          headers: {}
+      security: []
+  /post/create:
+    post:
+      summary: create
+      deprecated: false
+      description: 投稿の作成
+      operationId: createPost
+      tags:
+        - post
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message_context:
+                  type: string
+                  description: テキスト以外も受け付ける
+              required:
+                - message_context
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  user_id:
+                    type: string
+                  message_context:
+                    type: string
+                  createAt:
+                    type: string
+                    format: date-time
+                required:
+                  - id
+                  - user_id
+                  - message_context
+                  - createAt
+          headers: {}
+      security:
+        - basic: []
+  /posts/get:
+    get:
+      summary: get-posts
+      deprecated: false
+      description: 投稿一覧を取得。
+      operationId: getPosts
+      tags:
+        - post
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/post'
+          headers: {}
+      security: []
+components:
+  schemas:
+    post:
+      type: object
+      properties:
+        id:
+          type: string
+        userid:
+          type: string
+        message_context:
+          type: string
+        upvote_users:
+          type: array
+          items:
+            type: string
+            description: userid
+          description: いいねしたユーザー
+        createdAt:
+          type: string
+      required:
+        - id
+        - userid
+        - message_context
+        - upvote_users
+        - createdAt
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+servers: []
+security: {}
