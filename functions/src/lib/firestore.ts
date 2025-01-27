@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 // firebaseConfig.tsは鍵情報を含むためgitでは管理していません
-import { firebaseConfig } from '../constants/firebaseConfig';
+import { firebaseConfig } from 'src/constants/firebaseConfig';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
